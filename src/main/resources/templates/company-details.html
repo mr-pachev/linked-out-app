@@ -30,7 +30,7 @@
         <div class="row">
             <div class="col-md-2"></div>
             <main class="jumbotron text-center rounded col-md-12 align-self-center"
-                  th:action="company-details"
+                  th:action="@{delete-company}"
                   th:method="post"
                   th:object="${companyDTO}">
                 <div class="justify-content-center">
@@ -45,7 +45,7 @@
                             <h4>Description: </h4><div th:text="*{description}"></div>
                             <h4>Budget: </h4><div th:text="*{budget}"></div>
                             <div class="align-bottom"><a class="btn btn-danger align-bottom"
-                                                     href="/">Delete company</a>
+                                                    href="/">Delete company</a>
                             </div>
                     </div>
                 </div>
