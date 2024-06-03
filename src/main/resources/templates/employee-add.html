@@ -32,36 +32,50 @@
             <div class="justify-content-center">
                 <h1>Add Employee</h1>
             </div>
-            <form class="m-md-auto w-50 text-center">
+            <form class="m-md-auto w-50 text-center"
+                  th:action="@{/employee/add}"
+                  th:method="post"
+                  th:object="${employeeDTO}">
 
                 <div class="form-group">
                     <label for="firstName">First Name</label>
-                    <input type="text" class="form-control text-center" id="firstName" aria-describedby="firstName" name="firstName" />
-                    <small>Error message</small>
+                    <input type="text" class="form-control text-center" id="firstName" aria-describedby="firstName" name="firstName"
+                            th:field="*{firstName}"
+                            th:errorclass="is-invalid"/>
+                    <p class="invalid-feedback errors alert alert-danger">Name must be between 2 and 10 letters</p>
+                    <div th:if="${employeeDTO.isExist}">Employee already exist</div>
                 </div>
 
                 <div class="form-group">
                     <label for="lastName">Last Name</label>
-                    <input type="text" class="form-control text-center" id="lastName" aria-describedby="lastName" name="lastName"/>
+                    <input type="text" class="form-control text-center" id="lastName" aria-describedby="lastName" name="lastName"
+                           th:field="*{lastName}"
+                           th:errorclass="is-invalid"/>
                     <small>Error message</small>
                 </div>
                 <fieldset class="form-group">
                     <legend>Choose Education Level</legend>
                     <div class="form-check">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="educationLevel"/>
+                            <input type="radio" class="form-check-input" name="educationLevel"
+                                   th:field="*{educationLevel}"
+                                   th:errorclass="is-invalid"/>
                             <span>Master</span>
                         </label>
                     </div>
                     <div class="form-check disabled">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input" name="educationLevel"/>
+                            <input type="radio" class="form-check-input" name="educationLevel"
+                                   th:field="*{educationLevel}"
+                                   th:errorclass="is-invalid"/>
                             <span>Bachelor</span>
                         </label>
                     </div>
                     <div class="form-check disabled">
                         <label class="form-check-label">
-                            <input type="radio" class="form-check-input " name="educationLevel" />
+                            <input type="radio" class="form-check-input " name="educationLevel"
+                                   th:field="*{educationLevel}"
+                                   th:errorclass="is-invalid"/>
                             <span>Secondary</span>
                         </label>
                     </div>
