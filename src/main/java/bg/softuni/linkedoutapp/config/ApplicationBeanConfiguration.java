@@ -22,7 +22,7 @@ public class ApplicationBeanConfiguration {
             public LocalDate convert(MappingContext<String, LocalDate> mappingContext) {
                 return LocalDate
                         .parse(mappingContext.getSource(),
-                                DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+                                DateTimeFormatter.ofPattern("dd/MM/yyyy"));
             }
         });
         return modelMapper;
