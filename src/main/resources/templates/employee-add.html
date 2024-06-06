@@ -78,11 +78,13 @@
 					</fieldset>
 
                 <div class="form-group">
-                    <label for="company"><h5>All available companies</h5></label>
+                    <label th:for="company"><h5>All available companies</h5></label>
                     <select multiple="false" class="form-control text-center" id="company" name="company">
-                        <option> First Company name</option>
-                        <option> Second Company name</option>
-                        <option> Third Company name</option>
+                        <option
+                                th:value="${company.getName()}"
+                                th:text="${company.getName()}">First Company name</option>
+<!--                        <option> Second Company name</option>-->
+<!--                        <option> Third Company name</option>-->
                     </select>
 				</div>
 
@@ -96,7 +98,8 @@
 
                 <div class="form-group">
                     <label for="birthDate">Birth Date</label>
-                    <input type="date" class="form-control text-center" id="birthDate" aria-describedby="birthDate" name="birthDate">
+                    <input type="date" class="form-control text-center" id="birthDate" aria-describedby="birthDate" name="birthDate"
+                    th:field="*{birthDay}">
                 </div>
 
                 <div class="form-group">
