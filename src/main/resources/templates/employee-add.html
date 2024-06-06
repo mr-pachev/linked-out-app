@@ -81,11 +81,10 @@
                     <label th:for="company"><h5>All available companies</h5></label>
                     <select multiple="false" class="form-control text-center" id="company" name="company">
                         <option
-                                th:value="${company.getName()}"
-                                th:text="${company.getName()}">First Company name</option>
-<!--                        <option> Second Company name</option>-->
-<!--                        <option> Third Company name</option>-->
-                    </select>
+                                th:each="company: ${companies}"
+                                th:text="${company.name}">First Company name
+                        </option>
+                     </select>
 				</div>
 
                 <div class="form-group">
