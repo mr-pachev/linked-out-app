@@ -79,8 +79,8 @@
 
                 <div class="form-group">
                     <label th:for="company"><h5>All available companies</h5></label>
-                    <select multiple="false" class="form-control text-center" id="company" name="company"
-                    th:field="*{id}">
+                    <select multiple=multiple class="form-control text-center" id="company" name="company"
+                            th:field="*{companies}">
                         <option
                                 th:each="company: ${allCompanies}"
                                 th:value="${company.id}"
