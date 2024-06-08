@@ -2,8 +2,9 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head}"></head>
 <body>
-<header th:replace="~{fragments/header}"></header>
-<main>
+
+    <header th:replace="~{fragments/header}"></header>
+    <main>
     <div class="container">
         <div class="row">
             <div class="col-md-2"></div>
@@ -15,14 +16,9 @@
             </main>
         </div>
 
-        <div id="footer">
-            <div class="container-fluid bg-transparent rounded">
-                <div class="text-white p-2 text-center">&copy; Spring Team 2020. All rights reserved.</div>
-            </div>
-        </div>
+        <footer id="footer" th:replace="fragments/footer"></footer>
     </div>
 </main>
-</main>
-</footer>
+
 </body>
 </html>
