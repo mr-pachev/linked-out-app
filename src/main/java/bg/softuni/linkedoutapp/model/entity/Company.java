@@ -22,8 +22,8 @@ public class Company extends BaseEntity{
     @NotNull
     private String town;
 
-    @ManyToOne
-    private Employee employees;
+    @ManyToMany(targetEntity = Employee.class, mappedBy = "companies")
+    private Set<Employee> employees;
 
     public BigDecimal getBudget() {
         return budget;
@@ -57,11 +57,11 @@ public class Company extends BaseEntity{
         this.town = town;
     }
 
-    public Employee getEmployees() {
+    public Set<Employee> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(Employee employees) {
+    public void setEmployees(Set<Employee> employees) {
         this.employees = employees;
     }
 }
