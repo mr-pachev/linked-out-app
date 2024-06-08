@@ -1,9 +1,6 @@
 package bg.softuni.linkedoutapp.model.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 
 import java.math.BigDecimal;
@@ -24,8 +21,9 @@ public class Company extends BaseEntity{
     private String name;
     @NotNull
     private String town;
-    @OneToMany(targetEntity = Employee.class, mappedBy = "company")
-    Set<Employee> employees;
+
+    @ManyToMany
+    private Set<Employee> employees;
 
     public BigDecimal getBudget() {
         return budget;
