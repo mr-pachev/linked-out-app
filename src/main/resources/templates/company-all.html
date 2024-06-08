@@ -26,16 +26,22 @@
     </nav>
 </header>
 <main>
-    <div class="container">
+    <div class="container" th:method="post"
+                            th:action="@{/company-details.html}"
+                            th:object="${allCompanies}">
         <h2 class="text-center text-dark bg-light rounded-circle mt-5">All companies</h2>
         <hr style="width: 50%"/>
         <div class='row mb-4 d-flex justify-content-around'>
           
-                <div class="col-md-4 d-flex flex-column bg-text mb-3 rounded-circle">
-                    <h2>Company: {name}</h2>
-                    <h4>Town: {town}</h4>
-                    <h4>Description: {description - first 5 char} ...</h4>
-                    <h4><a class="btn-block" href="/">Detail info</a></h4>
+                <div class="col-md-4 d-flex flex-column bg-text mb-3 rounded-circle"
+                th:each="company: ${allCompanies}">
+                    <h2>Company: </h2>
+                    <div th:text="${company.name}"></div>
+                    <h4>Town: </h4>
+                    <div th:text="${company.town}"></div>
+                    <h4>Description: </h4>
+                    <div th:text="${company.description}"></div>
+                    <h4><a class="btn-block" th:href="@{company-details}">Detail info</a></h4>
                 </div>
           
         </div>
