@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>LinkedOut</title>
-    <link rel="stylesheet" href="/css/reset-css.css"/>
-    <link rel="stylesheet" href="/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/css/style.css"/>
-</head>
+<head th:replace="~{fragments/head}"></head>
 <body>
 
 <header>
@@ -35,12 +29,9 @@
           
                 <div class="col-md-4 d-flex flex-column bg-text mb-3 rounded-circle"
                 th:each="company: ${allCompanies}">
-                    <h2>Company: </h2>
-                    <div th:text="${company.name}"></div>
-                    <h4>Town: </h4>
-                    <div th:text="${company.town}"></div>
-                    <h4>Description: </h4>
-                    <div th:text="${company.description}"></div>
+                    <h2>Company: <span th:text="${company.name}"></span></h2>
+                    <h4>Town: <span th:text="${company.town}"></span></h4>
+                    <h4>Description: <span th:text="${#strings.substring(company.description, 0, 5)}"></span></h4>
                     <h4><a class="btn-block" th:href="@{company-details}">Detail info</a></h4>
                 </div>
           
