@@ -5,7 +5,9 @@
 <header th:replace="~{fragments/header}"></header>
 <main>
     <div class="container"
-            th:object="${employeeDTO}">
+            th:action="@{/employee-details/{id}(id=${employeeDTO.id})}"
+            th:object="${employeeDTO}"
+            th:method="post">
         <div class="row">
             <div class="col-md-2"></div>
             <main class="jumbotron text-center rounded col-md-12 align-self-center">
@@ -15,11 +17,11 @@
                 <div class="row">
                     <div class="col-md-6 bg-dark">
                         <h2>Employee</h2>
-                        <h4>First Name: {firstName}</h4>
-                        <h4>Last Name: {lastName}</h4>
-                        <h4>Education Level: {educationLevel}</h4>
-                        <h4>Job title: {jobTitle}</h4>
-                        <h4>Birthdate: {birthDate}</h4>
+                        <h4>First Name: <span th:text="*{firstName}"></span></h4>
+                        <h4>Last Name: <span th:text="*{lastName}"></span></h4>
+                        <h4>Education Level: <span th:text="*{educationLevel}"></span></h4>
+                        <h4>Job title: <span th:text="*{jobTitle}"></span></h4>
+                        <h4>Birthdate: <span th:text="*{birthDay}"></span></h4>
                         <h4>Salary: {salary in format 10$}</h4>
                         <h4>Company: {company name}</h4>
                         <div class="align-bottom">
