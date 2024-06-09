@@ -22,7 +22,7 @@ public class Company extends BaseEntity{
     @NotNull
     private String town;
 
-    @ManyToMany(mappedBy = "companies")
+    @ManyToMany(mappedBy = "companies", fetch = FetchType.EAGER)
     private Set<Employee> employees;
 
     public BigDecimal getBudget() {
