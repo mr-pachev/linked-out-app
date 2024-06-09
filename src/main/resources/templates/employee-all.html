@@ -2,27 +2,25 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head}"></head>
 <body>
-
 <header th:replace="~{fragments/header}"></header>
-    <main>
-        <div class="container"
-        th:method="POST"
-        th:action="@{/employees/all}"
-        th:object="${allEmployees}">
-            <h2 class="text-center text-dark bg-light rounded-circle mt-5">All employees</h2>
-            <hr style="width: 50%"/>
-            <div class='row mb-4 d-flex justify-content-around' th:each="employee: ${allEmployees}">
+<main>
+    <div class="container"
+         th:method="POST"
+         th:action="@{/employees/all}"
+         th:object="${allEmployees}">
+        <h2 class="text-center text-dark bg-light rounded-circle mt-5">All employees</h2>
+        <hr style="width: 50%"/>
+        <div class='row mb-4 d-flex justify-content-around' th:each="employee: ${allEmployees}">
 
-                    <div class="col-md-4 d-flex flex-column bg-text mb-3 rounded">
-                        <h2>Full name: <span th:text="${employee.firstName} + ' ' + ${employee.lastName}"></span></h2>
-                        <h4>Job title: <span th:text="${employee.jobTitle}"></span></h4>
-                        <h4>Birth Date: <span th:text="${employee.birthDay}"></span></h4>
-                        <h4><a class="btn-block" th:href="@{/employee-detail}">Detail info</a></h4>
-                    </div>
+            <div class="col-md-4 d-flex flex-column bg-text mb-3 rounded">
+                <h2>Full name: <span th:text="${employee.firstName} + ' ' + ${employee.lastName}"></span></h2>
+                <h4>Job title: <span th:text="${employee.jobTitle}"></span></h4>
+                <h4>Birth Date: <span th:text="${employee.birthDay}"></span></h4>
+                <h4><a class="btn-block" th:href="@{/employee-details/{id}(id=${employee.id})}">Detail info</a></h4>
             </div>
         </div>
-    </main>
-
-    <footer id="footer" th:replace="fragments/footer"></footer>
+    </div>
+</main>
+<footer id="footer" th:replace="fragments/footer"></footer>
 </body>
 </html>

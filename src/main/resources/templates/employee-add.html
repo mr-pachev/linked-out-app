@@ -2,7 +2,6 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head th:replace="~{fragments/head}"></head>
 <body>
-
 <header th:replace="~{fragments/header}"></header>
 <div class="container">
     <div class="row">
@@ -18,15 +17,17 @@
 
                 <div class="form-group">
                     <label for="firstName">First Name</label>
-                    <input type="text" class="form-control text-center" id="firstName" aria-describedby="firstName" name="firstName"
-                            th:field="*{firstName}"
-                            th:errorclass="is-invalid"/>
+                    <input type="text" class="form-control text-center" id="firstName" aria-describedby="firstName"
+                           name="firstName"
+                           th:field="*{firstName}"
+                           th:errorclass="is-invalid"/>
                     <p class="invalid-feedback errors alert alert-danger">First name must be min 2 letters</p>
                 </div>
 
                 <div class="form-group">
                     <label for="lastName">Last Name</label>
-                    <input type="text" class="form-control text-center" id="lastName" aria-describedby="lastName" name="lastName"
+                    <input type="text" class="form-control text-center" id="lastName" aria-describedby="lastName"
+                           name="lastName"
                            th:field="*{lastName}"
                            th:errorclass="is-invalid"/>
                     <p class="invalid-feedback errors alert alert-danger">Last name must be min 2 letters</p>
@@ -54,7 +55,7 @@
                             <span>Secondary</span>
                         </label>
                     </div>
-					</fieldset>
+                </fieldset>
 
                 <div class="form-group">
                     <label th:for="company"><h5>All available companies</h5></label>
@@ -65,12 +66,13 @@
                                 th:value="${company.id}"
                                 th:text="${company.name}">Company name
                         </option>
-                     </select>
-				</div>
+                    </select>
+                </div>
 
                 <div class="form-group">
                     <label for="jobTitle">Job Title</label>
-                    <input type="text" class="form-control text-center" id="jobTitle" aria-describedby="jobTitle" name="jobTitle"
+                    <input type="text" class="form-control text-center" id="jobTitle" aria-describedby="jobTitle"
+                           name="jobTitle"
                            th:field="*{jobTitle}"
                            th:errorclass="is-invalid"/>
                     <p class="invalid-feedback errors alert alert-danger">Write job title</p>
@@ -78,14 +80,15 @@
 
                 <div class="form-group">
                     <label for="birthDate">Birth Date</label>
-                    <input type="date" class="form-control text-center" id="birthDate" aria-describedby="birthDate" name="birthDate"
-                    th:field="*{birthDay}">
+                    <input type="date" class="form-control text-center" id="birthDate" aria-describedby="birthDate"
+                           name="birthDate"
+                           th:field="*{birthDay}">
                 </div>
 
                 <div class="form-group">
                     <label for="salary">Salary</label>
                     <input type="number" class="form-control text-center" id="salary"
-					aria-describedby="salary" name="salary"
+                           aria-describedby="salary" name="salary"
                            th:field="*{salary}"
                            th:errorclass="is-invalid"/>
                     <p class="invalid-feedback errors alert alert-danger">Choose salary</p>
@@ -96,5 +99,5 @@
     </div>
 </div>
 </body>
-    <footer id="footer" th:replace="fragments/footer"></footer>
+<footer id="footer" th:replace="fragments/footer"></footer>
 </html>
